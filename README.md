@@ -21,14 +21,10 @@ Initial testing involved submitting different inputs to observe how the applicat
 
 <img width="491" height="692" alt="Screenshot 2025-10-26 191304" src="https://github.com/user-attachments/assets/5f42c4fd-801d-4cb1-85ee-2ef4a8daf0da" />
 
----
-
 ### Understanding Backend Logic (Source Code Analysis)
 Since the source code is provided with the challenge, the main focus was on reviewing it to understand how license validation is implemented.
 
-The application sends user input to the following endpoint: ** POST /license
-
-
+The application sends user input to the following endpoint: `POST /license`.
 The request is processed by a backend function named `checkLicense`.
 
 <img width="708" height="477" alt="Screenshot 2025-10-26 191316" src="https://github.com/user-attachments/assets/ac4ad780-cde5-4cc5-ab58-8f3776368d70" />
@@ -56,7 +52,7 @@ This creates a **time-based side channel**, similar in concept to **Blind Time-B
 
 ## 🧪 Exploitation Strategy – Regex Timing Attack
 
-The attack relies on crafting **computationally expensive regex patterns** that cause a delay **only when a guessed character matches the secret**.
+The attack relies on crafting **regex patterns** that cause a delay **only when a guessed character matches the secret**.
 
 - Matching character → increased response time  
 - Non-matching character → normal response time  
@@ -104,3 +100,10 @@ FLAG{
 - Burp Suite (Turbo Intruder – custom script)
 - regex101
 - VS Code
+
+---
+
+## 🧾 Summary
+This challenge demonstrates how improper use of regular expressions in secret validation can introduce a time-based side channel.  
+By analyzing the provided source code and exploiting the asynchronous regex evaluation, it was possible to extract the secret value character by character using response time differences.  
+The attack was fully automated using a custom Turbo Intruder script, resulting in successful flag recovery.
