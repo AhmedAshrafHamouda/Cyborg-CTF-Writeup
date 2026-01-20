@@ -25,6 +25,7 @@ Initial testing involved submitting different inputs to observe how the applicat
 Since the source code is provided with the challenge, the main focus was on reviewing it to understand how license validation is implemented.
 
 The application sends user input to the following endpoint: `POST /license`.
+
 The request is processed by a backend function named `checkLicense`.
 
 <img width="708" height="477" alt="Screenshot 2025-10-26 191316" src="https://github.com/user-attachments/assets/ac4ad780-cde5-4cc5-ab58-8f3776368d70" />
@@ -59,7 +60,7 @@ The attack relies on crafting **regex patterns** that cause a delay **only when 
 
 To achieve this:
 - Complex regex patterns were generated and refined
-- Patterns were tested and analyzed using https://regex101.com to confirm timing behavior
+- Patterns were tested and analyzed using https://regex101.com
 
 <img width="1917" height="325" alt="Screenshot 2025-10-26 191930" src="https://github.com/user-attachments/assets/fbb90981-5c65-4c93-9147-f44e67bdc7a3" />
 
